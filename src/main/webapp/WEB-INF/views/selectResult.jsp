@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>検索結果画面</title>
-<link href="${pageContext.request.contextPath}/css/commons.css" rel="stylesheet">
+<link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
 	<table>
@@ -29,8 +29,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<div>
-		<a href="menu.jsp">メニューに戻る</a>
-	</div>
+
 </body>
 </html>

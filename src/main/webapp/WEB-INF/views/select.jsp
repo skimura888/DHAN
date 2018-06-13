@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>検索画面</title>
-<link href="css/commons.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/commons.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,22 +17,20 @@
 <p>検索したいデータ情報を入力してください<br>
 ※全て空白の場合は全検索を行います</p>
 
-<form:form action="select" modelAttribute="selectForm" >
+<form:form action="list" modelAttribute="loginForm">
   <fieldset>
     <div>
-      <label>ID</label><form:input path="id" />
+      <label>ID</label><form:input path="userId" />
     </div>
     <div>
-      <label>名前</label><form:input path="name" />
+      <label>名前</label><form:input path="userName" />
     </div>
     <div>
-      <label>TEL</label><form:input path="pass" />
+      <label>TEL</label><form:input path="telephone" />
     </div>
   </fieldset>
   <form:button>検索</form:button>
 </form:form>
-<div>
-  <a href="menu.jsp">メニューに戻る</a>
-</div>
+
 </body>
 </html>

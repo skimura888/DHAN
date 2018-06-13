@@ -12,7 +12,6 @@ public class IndexController {
 
 	@RequestMapping("/index")
 	public String index(@ModelAttribute("loginForm") LoginForm form, Model model) {
-		model.addAttribute("msg", "welcome");
 		return "index";
 	}
 }

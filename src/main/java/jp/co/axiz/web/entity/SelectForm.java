@@ -1,14 +1,14 @@
 package jp.co.axiz.web.entity;
 
 public class SelectForm {
-	private Integer userId;
+	private String userId;
 	private String userName;
 	private String telephone;
-	private String password;
-	public Integer getUserId() {
+
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(Integer userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
@@ -23,10 +23,5 @@ public class SelectForm {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 }

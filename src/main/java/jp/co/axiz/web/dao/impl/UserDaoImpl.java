@@ -126,6 +126,9 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	public void delete(Integer id) {
+		jdbcTemplate.update(SQL_DELETE,
+				id);
+
 		return;
 	}
 }

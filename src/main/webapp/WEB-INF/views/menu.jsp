@@ -20,5 +20,8 @@
 <p>
 	<a href="update">更新</a>
 </p>
+<p>
+	<a href="delete">削除</a>
+</p>
 </body>
 </html>

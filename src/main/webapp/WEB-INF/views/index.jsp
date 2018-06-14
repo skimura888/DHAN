@@ -8,8 +8,7 @@
 <title>TOP画面</title>
 </head>
 <body>
-	<form:form action="login" method="get" modelAttribute ="loginForm">
-		<form:button>通常ログイン</form:button>
-	</form:form>
+<a href="login">通常ログイン</a>
+
 </body>
 </html>

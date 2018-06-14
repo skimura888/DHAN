@@ -10,10 +10,12 @@
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-ようこそ佐藤さん！！
-
-	<form:form action="select" method="get" modelAttribute ="loginForm">
-		<form:button>検索</form:button>
-	</form:form>
+	ようこそ佐藤さん！！
+<p>
+	<a href="select">検索</a>
+</p>
+<p>
+	<a href="insert">登録</a>
+</p>
 </body>
 </html>

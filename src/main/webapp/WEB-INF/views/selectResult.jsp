@@ -29,6 +29,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-
+<a href="menu">メニューへ戻る</a>
 </body>
 </html>

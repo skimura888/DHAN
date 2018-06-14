@@ -105,7 +105,10 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	public void insert(String name, String tel, String pass) {
-		return;
+		jdbcTemplate.update(SQL_INSERT,
+				name,
+				tel,
+				pass);
 	}
 
 	public void update(String name, String tel, String pass, Integer id) {

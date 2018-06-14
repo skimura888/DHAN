@@ -7,30 +7,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>検索画面</title>
+<title>登録画面</title>
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
 
     <p class="message">${msg}</p>
+<p>登録情報を入力してください<br>
+<span class="required"></span>は必須です</p>
 
-<p>検索したいデータ情報を入力してください<br>
-※全て空白の場合は全検索を行います</p>
-
-<form:form action="list" modelAttribute="loginForm">
-  <fieldset>
+<form:form action="insert" modelAttribute="insertForm">
+  <fieldset class="label-60">
     <div>
-      <label>ID</label><form:input path="userId" />
+      <label class="required">名前</label><form:input path="name" />
     </div>
     <div>
-      <label>名前</label><form:input path="userName" />
+      <label class="required">TEL</label><form:input path="tel" />
     </div>
     <div>
-      <label>TEL</label><form:input path="telephone" />
+      <label class="required">PASS</label><form:password path="pass" />
     </div>
   </fieldset>
-  <form:button>検索</form:button>
+  <form:button>確認</form:button>
 </form:form>
-
+<div>
+  <a href="menu">メニューに戻る</a>
+</div>
 </body>
 </html>

@@ -10,7 +10,12 @@
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-	ようこそ佐藤さん！！
+
+<c:if test="${empty login}">
+  <c:redirect url="/index"/>
+</c:if>
+
+	ようこそ${login}さん！！
 <p>
 	<a href="select">検索</a>
 </p>
@@ -23,5 +28,8 @@
 <p>
 	<a href="delete">削除</a>
 </p>
+<form:form action="logout" modelAttribute = "form">
+  <form:button>ログアウト</form:button>
+</form:form>
 </body>
 </html>

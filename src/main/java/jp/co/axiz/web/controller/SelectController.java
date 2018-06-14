@@ -1,6 +1,5 @@
 package jp.co.axiz.web.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +24,15 @@ public class SelectController {
 		return "select";
 	}
 
-	@RequestMapping(value="/list", method =RequestMethod.POST)
+	@RequestMapping(value="/list", method =RequestMethod.GET)
 	public String list(@ModelAttribute("form") SelectForm form, Model model) {
-		List<UserInfo> list = new ArrayList<UserInfo>();
-		list = ss.find(form);
+		List<UserInfo> list = ss.find(form);
+
+		if(list.size()==0) {
+			model.addAttribute("msg", "入力されたデータは存在しませんでした");
+			return "select";
+		}
+
 		model.addAttribute("userList", list);
 		return "selectResult";
 	}

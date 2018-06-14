@@ -33,7 +33,7 @@
   </fieldset>
   <div>
     <form:button>登録</form:button>
-
+    <form:button onclick="location.href='insert'; return false;">戻る</form:button>
   </div>
 </form:form>
 <div>

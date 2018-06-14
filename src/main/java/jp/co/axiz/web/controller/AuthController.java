@@ -1,5 +1,7 @@
 package jp.co.axiz.web.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,16 +25,26 @@ public class AuthController {
 	}
 
 	@RequestMapping(value = "/login", method=RequestMethod.POST)
-	public String login(@ModelAttribute("form") LoginForm form, Model model) {
+	public String login(@ModelAttribute("form") LoginForm form, Model model, HttpSession session) {
 		String id =form.getId();
 		String pass =form.getPass();
 
 		Admin a = ls.findByIdAndPass(id, pass);
 		if(a==null) {
+			model.addAttribute("msg", "IDまたはPASSが間違っています");
 		return "login";
 		}
 
+		String login = a.getAdminName();
+		session.setAttribute("login", login);
 		return "menu";
+	}
+
+	@RequestMapping(value = "/logout", method=RequestMethod.POST)
+	public String logout(@ModelAttribute("form") LoginForm form, Model model, HttpSession session) {
+
+		session.invalidate();
+		return "logout";
 	}
 
 

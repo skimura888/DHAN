@@ -28,7 +28,10 @@ public class DeleteController {
 	public String delete(@ModelAttribute("form") DeleteForm form, Model model, HttpSession session) {
 		Integer id = form.getId();
 		UserInfo ui = ds.findById(id);
-
+		if(ui==null) {
+			model.addAttribute("msg", "入力されたデータは存在しません");
+			return "delete";
+		}
 		model.addAttribute("User", ui);
 
 		return "deleteConfirm";

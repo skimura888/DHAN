@@ -9,7 +9,7 @@
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-<p>実行者：</p>
+<p>実行者：${login}</p>
 <p>正常に登録されました</p>
 <form:form action="select" method="get" modelAttribute = "form">
   <form:button>検索</form:button>

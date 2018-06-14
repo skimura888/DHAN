@@ -26,6 +26,23 @@ public class InsertController {
 
 	@RequestMapping(value="/insert", method =RequestMethod.POST)
 	public String insert(@ModelAttribute("form") InsertForm form, Model model, HttpSession session) {
+		String name = form.getName();
+		String tel = form.getTel();
+		String pass = form.getPass();
+
+		if (name == null || name.isEmpty()) {
+			model.addAttribute("msg", "必須項目を入力してください");
+			return "insert";
+		}
+		if (tel == null || tel.isEmpty()) {
+			model.addAttribute("msg", "必須項目を入力してください");
+			return "insert";
+		}
+		if (pass == null || pass.isEmpty()) {
+			model.addAttribute("msg", "必須項目を入力してください");
+			return "insert";
+		}
+
 		session.setAttribute("form", form);
 		return "insertConfirm";
 	}
@@ -41,9 +58,12 @@ public class InsertController {
 
 		if(pass.equals(rePass)) {
 			is.insert(name, tel, rePass);
+			Integer max = is.findMax();
+			session.setAttribute("changeId", max);
+			session.removeAttribute("form");
 			return "insertResult";
 		}
-
+		model.addAttribute("msg", "パスワードが一致しませんでした");
 		return "insertConfirm";
 	}
 }

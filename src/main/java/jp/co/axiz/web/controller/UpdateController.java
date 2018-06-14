@@ -29,6 +29,7 @@ public class UpdateController {
 		Integer id =form.getId();
 		UserInfo u = us.findById(id);
 		if(u==null) {
+			model.addAttribute("msg", "入力されたデータは存在しません");
 			return "update";
 		}
 
@@ -55,28 +56,28 @@ public class UpdateController {
 
 		UserInfo afterUser = (UserInfo) session.getAttribute("afterUser");
 
-		String errmsg = null;
+		String msg = null;
 
 		if (newPass == null || newPass.isEmpty()) {
-			errmsg = "PASSは必須です";
+			msg = "PASSは必須です";
 		} else {
 			afterUser.setPassword(newPass);
 		}
 
 		if (newTel == null || newTel.isEmpty()) {
-			errmsg = "TELは必須です";
+			msg = "TELは必須です";
 		} else {
 			afterUser.setTelephone(newTel);
 		}
 
 		if (newName == null || newName.isEmpty()) {
-			errmsg = "名前は必須です";
+			msg = "名前は必須です";
 		} else {
 			afterUser.setUserName(newName);
 		}
 
-		if (errmsg != null) {
-			model.addAttribute("errmsg", errmsg);
+		if (msg != null) {
+			model.addAttribute("msg", msg);
 			return "updateInput";
 		}
 
@@ -111,6 +112,8 @@ public class UpdateController {
 
 		session.removeAttribute("beforeUser");
 		session.removeAttribute("afterUser");
+
+		session.setAttribute("changeId", form.getId());
 
 		return "updateResult";
 	}

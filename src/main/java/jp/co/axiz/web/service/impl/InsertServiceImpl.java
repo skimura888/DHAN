@@ -15,4 +15,8 @@ public class InsertServiceImpl implements InsertService{
 	public void insert(String name, String tel, String pass) {
 		ud.insert(name, tel, pass);
 	}
+
+	public Integer findMax() {
+		return ud.findMax();
+	}
 }

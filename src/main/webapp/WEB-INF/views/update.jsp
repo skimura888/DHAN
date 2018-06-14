@@ -11,9 +11,9 @@
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-  <c:if test="${not empty msg}">
+
     <p class="message">${msg}</p>
-  </c:if>
+
 
 <p>更新を行うデータのIDを入力してください<br>
 <span class="required"></span>は必須です</p>

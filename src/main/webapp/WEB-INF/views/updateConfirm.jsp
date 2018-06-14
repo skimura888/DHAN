@@ -66,7 +66,7 @@
 
   <div class="col-clear">
     <form:button>更新</form:button>
-
+    <form:button onclick="location.href='update'; return false;">戻る</form:button>
   </div>
 </form:form>
 <div>

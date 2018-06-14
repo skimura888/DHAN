@@ -9,7 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import jp.co.axiz.web.dao.UserDao;
-import jp.co.axiz.web.entity.User;
+import jp.co.axiz.web.entity.UserInfo;
+import jp.co.axiz.web.entity.UserMax;
 
 @Repository
 public class UserDaoImpl implements UserDao{
@@ -37,62 +38,62 @@ public class UserDaoImpl implements UserDao{
 	private Connection connection;
 
 
-	public List<User> findAll() {
-		List<User> list = jdbcTemplate.query(SQL_SELECT_ALL,
-				new BeanPropertyRowMapper<User>(User.class));
+	public List<UserInfo> findAll() {
+		List<UserInfo> list = jdbcTemplate.query(SQL_SELECT_ALL,
+				new BeanPropertyRowMapper<UserInfo>(UserInfo.class));
 
 		return list;
 	}
 
-	public List<User> findById(Integer id) {
-		List<User> list = jdbcTemplate.query(SQL_SELECT_ID,
-				new BeanPropertyRowMapper<User>(User.class),
+	public List<UserInfo> findById(Integer id) {
+		List<UserInfo> list = jdbcTemplate.query(SQL_SELECT_ID,
+				new BeanPropertyRowMapper<UserInfo>(UserInfo.class),
 				id);
 
 		return list;
 	}
 
-	public List<User> findByName(String name) {
-		List<User> list = jdbcTemplate.query(SQL_SELECT_NAME,
-				new BeanPropertyRowMapper<User>(User.class),
+	public List<UserInfo> findByName(String name) {
+		List<UserInfo> list = jdbcTemplate.query(SQL_SELECT_NAME,
+				new BeanPropertyRowMapper<UserInfo>(UserInfo.class),
 				name);
 		return list;
 	}
 
-	public List<User> findByTel(String tel) {
-		List<User> list = jdbcTemplate.query(SQL_SELECT_TEL,
-				new BeanPropertyRowMapper<User>(User.class),
+	public List<UserInfo> findByTel(String tel) {
+		List<UserInfo> list = jdbcTemplate.query(SQL_SELECT_TEL,
+				new BeanPropertyRowMapper<UserInfo>(UserInfo.class),
 				tel);
 		return list;
 	}
 
-	public List<User> findByIdName(Integer id, String name) {
-		List<User> list = jdbcTemplate.query(SQL_SELECT_ID_NAME,
-				new BeanPropertyRowMapper<User>(User.class),
+	public List<UserInfo> findByIdName(Integer id, String name) {
+		List<UserInfo> list = jdbcTemplate.query(SQL_SELECT_ID_NAME,
+				new BeanPropertyRowMapper<UserInfo>(UserInfo.class),
 				id,
 				name);
 		return list;
 	}
 
-	public List<User> findByIdTel(Integer id, String tel) {
-		List<User> list = jdbcTemplate.query(SQL_SELECT_ID_TEL,
-				new BeanPropertyRowMapper<User>(User.class),
+	public List<UserInfo> findByIdTel(Integer id, String tel) {
+		List<UserInfo> list = jdbcTemplate.query(SQL_SELECT_ID_TEL,
+				new BeanPropertyRowMapper<UserInfo>(UserInfo.class),
 				id,
 				tel);
 		return list;
 	}
 
-	public List<User> findByNameTel(String name, String tel) {
-		List<User> list = jdbcTemplate.query(SQL_SELECT_NAME_TEL,
-				new BeanPropertyRowMapper<User>(User.class),
+	public List<UserInfo> findByNameTel(String name, String tel) {
+		List<UserInfo> list = jdbcTemplate.query(SQL_SELECT_NAME_TEL,
+				new BeanPropertyRowMapper<UserInfo>(UserInfo.class),
 				name,
 				tel);
 		return list;
 	}
 
-	public List<User> findByIdNameTel(Integer id, String name, String tel) {
-		List<User> list = jdbcTemplate.query(SQL_SELECT_ID_NAME_TEL,
-				new BeanPropertyRowMapper<User>(User.class),
+	public List<UserInfo> findByIdNameTel(Integer id, String name, String tel) {
+		List<UserInfo> list = jdbcTemplate.query(SQL_SELECT_ID_NAME_TEL,
+				new BeanPropertyRowMapper<UserInfo>(UserInfo.class),
 				id,
 				name,
 				tel);
@@ -100,8 +101,11 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	public Integer findMax() {
+		List<UserMax> list = jdbcTemplate.query(SQL_SELECT_MAX,
+				new BeanPropertyRowMapper<UserMax>(UserMax.class));
+		UserMax um = list.get(0);
 
-		return null;
+		return um.getMax();
 	}
 
 	public void insert(String name, String tel, String pass) {
@@ -112,6 +116,12 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	public void update(String name, String tel, String pass, Integer id) {
+		jdbcTemplate.update(SQL_UPDATE,
+				name,
+				tel,
+				pass,
+				id);
+
 		return;
 	}
 

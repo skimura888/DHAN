@@ -18,12 +18,12 @@ public class AuthController {
 	LoginService ls;
 
 	@RequestMapping(value = "/login", method=RequestMethod.GET)
-	public String index(@ModelAttribute("loginForm") LoginForm form, Model model) {
+	public String index(@ModelAttribute("form") LoginForm form, Model model) {
 		return "login";
 	}
 
 	@RequestMapping(value = "/login", method=RequestMethod.POST)
-	public String login(@ModelAttribute("loginForm") LoginForm form, Model model) {
+	public String login(@ModelAttribute("form") LoginForm form, Model model) {
 		String id =form.getId();
 		String pass =form.getPass();
 

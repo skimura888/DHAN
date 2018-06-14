@@ -10,7 +10,7 @@
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-  <form:form action="login" modelAttribute="loginForm" >
+  <form:form action="login" modelAttribute="form" >
   <p>
   <label>ID</label><form:input path="id" />
   </p>

@@ -17,7 +17,7 @@
 <p>検索したいデータ情報を入力してください<br>
 ※全て空白の場合は全検索を行います</p>
 
-<form:form action="list" modelAttribute="loginForm">
+<form:form action="list" modelAttribute="form">
   <fieldset>
     <div>
       <label>ID</label><form:input path="userId" />
@@ -31,6 +31,8 @@
   </fieldset>
   <form:button>検索</form:button>
 </form:form>
-
+<div>
+  <a href="menu">メニューに戻る</a>
+</div>
 </body>
 </html>

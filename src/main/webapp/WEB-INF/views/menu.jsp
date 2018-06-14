@@ -17,5 +17,8 @@
 <p>
 	<a href="insert">登録</a>
 </p>
+<p>
+	<a href="update">更新</a>
+</p>
 </body>
 </html>

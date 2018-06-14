@@ -16,7 +16,7 @@
 <p>登録情報を入力してください<br>
 <span class="required"></span>は必須です</p>
 
-<form:form action="insert" modelAttribute="insertForm">
+<form:form action="insert" modelAttribute="form">
   <fieldset class="label-60">
     <div>
       <label class="required">名前</label><form:input path="name" />

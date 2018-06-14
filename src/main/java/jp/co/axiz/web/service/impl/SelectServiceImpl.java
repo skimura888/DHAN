@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import jp.co.axiz.web.dao.UserDao;
 import jp.co.axiz.web.entity.SelectForm;
-import jp.co.axiz.web.entity.User;
+import jp.co.axiz.web.entity.UserInfo;
 import jp.co.axiz.web.service.SelectService;
 
 @Repository
@@ -18,7 +18,7 @@ public class SelectServiceImpl implements SelectService{
 	UserDao ud;
 
 	@Override
-	public List<User> find(SelectForm form) {
+	public List<UserInfo> find(SelectForm form) {
 		String id = form.getUserId();
 		String name = form.getUserName();
 		String tel = form.getTelephone();
@@ -39,7 +39,7 @@ public class SelectServiceImpl implements SelectService{
 			isTel = true;
 		}
 
-		List<User> list = new ArrayList<User>();
+		List<UserInfo> list = new ArrayList<UserInfo>();
 		if(isId && isName && isTel) {
 			list = ud.findByIdNameTel(uid, name, tel);
 		}else if(isId && isName) {

@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登録結果確認画面</title>
+<title>更新結果確認画面</title>
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
 <p>実行者：</p>
-<p>正常に登録されました</p>
+<p>正常に更新されました</p>
 <form:form action="select" method="get" modelAttribute = "form">
   <form:button>検索</form:button>
 </form:form>

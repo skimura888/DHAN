@@ -20,18 +20,18 @@ public class InsertController {
 	InsertService is;
 
 	@RequestMapping(value="/insert", method =RequestMethod.GET)
-	public String janp(@ModelAttribute("insertForm") InsertForm form, Model model) {
+	public String janp(@ModelAttribute("form") InsertForm form, Model model) {
 		return "insert";
 	}
 
 	@RequestMapping(value="/insert", method =RequestMethod.POST)
-	public String insert(@ModelAttribute("insertForm") InsertForm form, Model model, HttpSession session) {
+	public String insert(@ModelAttribute("form") InsertForm form, Model model, HttpSession session) {
 		session.setAttribute("form", form);
 		return "insertConfirm";
 	}
 
 	@RequestMapping(value="/insertConfirm", method =RequestMethod.POST)
-	public String insertConfirm(@ModelAttribute("insertForm") InsertForm form, Model model, HttpSession session) {
+	public String insertConfirm(@ModelAttribute("form") InsertForm form, Model model, HttpSession session) {
 		InsertForm beform = (InsertForm)session.getAttribute("form");
 		String pass = beform.getPass();
 

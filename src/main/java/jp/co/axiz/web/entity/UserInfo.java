@@ -1,16 +1,16 @@
 package jp.co.axiz.web.entity;
 
-public class User {
+public class UserInfo {
 	private Integer userId;
 	private String userName;
 	private String telephone;
 	private String password;
 
 
-	public User() {
+	public UserInfo() {
 	}
 
-	public User(Integer userId, String userName, String telephone, String password) {
+	public UserInfo(Integer userId, String userName, String telephone, String password) {
 		this.userId = userId;
 		this.userName = userName;
 		this.telephone = telephone;

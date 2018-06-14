@@ -7,34 +7,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登録確認画面</title>
+<title>更新画面</title>
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-
+  <c:if test="${not empty msg}">
     <p class="message">${msg}</p>
+  </c:if>
 
-<p>これでよろしいですか？</p>
+<p>更新を行うデータのIDを入力してください<br>
+<span class="required"></span>は必須です</p>
 
-<form:form action="insertConfirm" modelAttribute="form" method="post">
-  <fieldset class="label-110">
+<form:form action="update" modelAttribute="form">
+  <fieldset>
     <div>
-      <label>名前</label><form:input path="name" value="${fn:escapeXml(form.name)}" readonly="true"/>
-
-    </div>
-    <div>
-      <label>TEL</label><form:input path="tel" value="${fn:escapeXml(form.tel)}" readonly="true"/>
-
-    </div>
-    <div>
-      <label>PASS（再入力）</label><form:password path="pass"/>
-
+      <label class="required">ID</label><form:input path="id" />
     </div>
   </fieldset>
-  <div>
-    <form:button>登録</form:button>
-
-  </div>
+  <form:button>確認</form:button>
 </form:form>
 <div>
   <a href="menu">メニューに戻る</a>
